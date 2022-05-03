@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 
 const Test = (props) => {
-  
-  //* ARRAY DESTRUCTURING
-  const [myName , setMyName] = useState("");
-  const [myInfo , setMyInfo] = useState({});
 
+  //* ARRAY DESTRUCTURING
+  const [myName, setMyName] = useState("");
+  const [myInfo, setMyInfo] = useState({
+    a: "Hello",
+    b: "World",
+  });
 
   //*   console.log(testState[0]);
   //*  console.log(testState[1]);
@@ -14,20 +16,25 @@ const Test = (props) => {
   //   testState[1]("Hello World!");
   // }
 
-  const changeState = () =>{
+  const changeState = () => {
     setMyName("DIPJOY");
+    // setMyInfo(myInfo.concat(5));
     setMyInfo({
-      age: "27",
-      address: "KOLKATA INDIA"
-    })
-  }
+      ...myInfo,
+      b: "React-hooks",
+    }
+      
+    )
+  };
+
+  console.log("MyInfo:", myInfo);
 
   return (
     <div>
-      <button onClick={changeState}>Show</button>
-      <h1>NAME: {myName}</h1>
+      <button onClick={changeState}>Change</button>
+      {/* <h1>NAME: {myName}</h1>
       <h1>AGE: {myInfo.age}</h1>
-      <h1>ADDRESS: {myInfo.address}</h1>
+      <h1>ADDRESS: {myInfo.address}</h1> */}
     </div>
   );
 };
