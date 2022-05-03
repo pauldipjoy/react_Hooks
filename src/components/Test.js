@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 
 const Test = (props) => {
-  const myName = useState("");
+  
+  //* ARRAY DESTRUCTURING
+  const [myName , setMyName] = useState("");
+  const [myInfo , setMyInfo] = useState({});
+
 
   //*   console.log(testState[0]);
   //*  console.log(testState[1]);
@@ -10,14 +14,20 @@ const Test = (props) => {
   //   testState[1]("Hello World!");
   // }
 
-  const changeState = ()=>{
-    myName[1]("DIPJOY");
+  const changeState = () =>{
+    setMyName("DIPJOY");
+    setMyInfo({
+      age: "27",
+      address: "KOLKATA INDIA"
+    })
   }
 
   return (
     <div>
       <button onClick={changeState}>Show</button>
-      <h1>{myName[0]}</h1>
+      <h1>NAME: {myName}</h1>
+      <h1>AGE: {myInfo.age}</h1>
+      <h1>ADDRESS: {myInfo.address}</h1>
     </div>
   );
 };
